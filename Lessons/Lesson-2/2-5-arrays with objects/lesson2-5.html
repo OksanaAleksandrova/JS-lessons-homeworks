@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    let users = [
+        {id: 1, name: 'John', age: 25, status: true, skills: ['html',  'mysql', 'mongo']},
+        {id: 2, name: 'Bob', age: 28, status: false, skills: ['html', 'js']},
+        {id: 3, name: 'Nik', age: 32, status: true, skills: ['html', 'js']},
+        {id: 4, name: 'Alex', age: 37, status: false, skills: ['html', 'mysql', 'mongo']}
+    ];
+    console.log(users);
+    let user0 = users[0];
+    // console.log(users[0].age); //25
+    console.log(users[0]['age']); //25
+    console.log(user0['age']); //25
+
+    console.log(users[0].skills[2]);
+    console.log(users[0]['skills'][2]);
+    //вариант console.log сокращённый, через переменные
+    let user = users[0];
+    let skills = user['skills'];
+    console.log(skills[2]);
+</script>
+</body>
+</html>

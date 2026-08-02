@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    let arr;
+    arr=[123, 345, -567, 2, 0, true, 'word'];
+    console.log(arr);
+    console.log(arr[0]);
+    console.log(arr[2]);
+    console.log(arr[4]);
+    console.log(arr.length);
+
+    arr[0] = 'new value';
+    console.log(arr[0]);
+
+    arr[7] = 'okten';
+    console.log(arr[7]);
+    arr[arr.length]= 'new-data';
+    console.log(arr);
+    arr[arr.length]= 1234;
+    console.log(arr);
+</script>
+</body>
+</html>

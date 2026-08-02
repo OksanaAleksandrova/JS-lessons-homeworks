@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    // let color = 'green';
+    // if (color === 'red') {
+    //     console.log('stop');
+    // } else {
+    //     console.log('go');
+    // }
+
+    let age = +prompt('enter your age'); // плюс делает из типа string тип number
+    // console.log(age, typeof age);
+    if (age >= 18) {
+        console.log('adult content');
+    } else {
+        console.log('child content');
+    }
+
+    // let color = prompt('enter color');
+    // if (color === 'green') {
+    //     if (confirm('is the road clear?')) {
+    //         console.log('go');
+    //     } else {
+    //         console.log('just wait');
+    //     }
+    //
+    // } else if (color === 'orange') {
+    //     console.log('wait');
+    // } else if (color === 'red') {
+    //     console.log('stop');
+    // } else {
+    //     console.log('unexpected color');
+    // }
+
+    // вариант 2 - &&confirm. В этом случае нет варианта else. Можно значение &&confirm присвоить переменной
+    let color = prompt('enter color');
+    let isRoadClear = confirm('is the road clear?');
+    if (color === 'green' && isRoadClear) {
+        console.log('go');
+    } else if (color === 'orange') {
+        console.log('wait');
+    } else if (color === 'red') {
+        console.log('stop');
+    } else {
+        console.log('unexpected color');
+    }
+</script>
+</body>
+</html>
