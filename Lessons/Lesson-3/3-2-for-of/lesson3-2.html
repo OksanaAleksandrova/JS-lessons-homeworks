@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    let users = [
+        {id: 1, name: 'alex', age: 20, status: true},
+        {id: 2, name: 'john', age: 30, status: false},
+        {id: 3, name: 'bob', age: 40, status: false},
+        {id: 4, name: 'mary', age: 20, status: true},
+        {id: 5, name: 'anna', age: 30, status: true},
+        {id: 6, name: 'jack', age: 40, status: true},
+        {id: 7, name: 'sam', age: 20, status: false},
+        {id: 8, name: 'sally', age: 30, status: false},
+    ];
+
+    debugger;
+
+    for (let user of users) {
+        console.log(user.name);
+    }
+    for (let user of users) {
+        if (user.status) {
+            console.log(user);
+        }
+    }
+    for (let user of users) {
+        if (!user.status) {
+            console.log(user);
+        }
+    }
+
+</script>
+</body>
+</html>

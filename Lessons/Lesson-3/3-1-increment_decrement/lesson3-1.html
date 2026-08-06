@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    // let x = 0;
+    // x = x + 1; // x=0+1=1
+    // console.log(x);
+    //
+    // x++;
+    // console.log(x); // 2
+    //
+    // x += 1;
+    // console.log(x); // 3
+    //
+    // x = x - 1;
+    // console.log(x); // 2
+    // x -= 1;
+    // console.log(x); // 1
+    // x--;
+    // console.log(x); // 0
+
+    let x = 0;
+    ++x;
+    console.log(x); // 1
+
+    let a = 0;
+    let b = a++;
+    console.log(a, b); // a=1 b=0 из-за последовательности операций (сначала идёт операция b=a, потом операция a++)
+    let a2 = 0;
+    let b2 = ++a2;
+    console.log(a2, b2); // a2=1 b2=1 (сначала идёт операция ++а2, потом операция b2=a2)
+</script>
+</body>
+</html>

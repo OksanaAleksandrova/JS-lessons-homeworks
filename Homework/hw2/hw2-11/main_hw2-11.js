@@ -7,7 +7,7 @@
 //     console.log('default')
 // }
 
-let x = 0;
+let x;
 if (!x) {
     console.log('default')
 }
