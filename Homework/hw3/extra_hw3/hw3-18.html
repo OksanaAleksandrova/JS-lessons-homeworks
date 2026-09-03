@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+
+    let abc = ['a', 'b', 'c'];
+
+    console.log('За допомогою циклу for зібрати всі букви в слово.');
+    let word = '';
+    for (let i = 0; i < abc.length; i++) {
+        word += abc[i]
+    }
+    console.log(word);
+
+
+    console.log('За допомогою циклу while зібрати всі букви в слово.');
+    let word2 = '';
+    let i = 0;
+    while (i < abc.length) {
+        word2 += abc[i];
+        i++;
+    }
+    console.log(word2);
+
+
+    console.log('За допомогою циклу for of зібрати всі букви в слово.')
+    let word3 = '';
+    for (let letter of abc){
+        word3 += letter;
+    }
+    console.log(word3);
+
+</script>
+</body>
+</html>
+
+<!--– Дано масив: [ ‘a’, ‘b’, ‘c’] . За допомогою циклу for зібрати всі букви в слово.-->
+
+<!--– Дано масив: [ ‘a’, ‘b’, ‘c’] . За допомогою циклу while зібрати всі букви в слово.-->
+
+<!--– Дано масив: [ ‘a’, ‘b’, ‘c’] . За допомогою циклу for of зібрати всі букви в слово.-->

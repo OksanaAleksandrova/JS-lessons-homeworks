@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+
+    let books = [
+        {
+            title: 'Гарри Поттер и философский камень',
+            pages: 432,
+            authors: ['Джоан Роулинг'],
+            genres: ['фэнтези', 'приключения']
+        },
+        {
+            title: 'Властелин колец',
+            pages: 1178,
+            authors: ['Джон Рональд Руэл Толкин'],
+            genres: ['фэнтези', 'приключения', 'драма']
+        },
+        {
+            title: 'Хорошие предзнаменования',
+            pages: 432,
+            authors: ['Нил Гейман', 'Терри Пратчетт'],
+            genres: ['фэнтези', 'комедия', 'сатира']
+        },
+        {
+            title: 'Автостопом по галактике',
+            pages: 224,
+            authors: ['Дуглас Адамс'],
+            genres: ['фантастика', 'комедия']
+        },
+        {
+            title: 'Очень длинное название этой замечательной книги',
+            pages: 560,
+            authors: ['Автор Один', 'Автор Два'],
+            genres: ['драма', 'роман']
+        }
+    ];
+
+    console.log('знайти найбільшу книжку');
+    let biggestBook = books[0];
+    for (let book of books) {
+        if (book.pages > biggestBook.pages) {
+            biggestBook = book;
+        }
+    }
+    console.log(biggestBook)
+
+
+    console.log('знайти книжку/ки з найбільшою кількістю жанрів');
+    // Сначала нашли максимум → потом нашли всех, кто этому максимуму соответствует.
+    let maxGenres = 0;
+    for (let book of books) {
+        if (book.genres.length > maxGenres) {
+            maxGenres = book.genres.length;
+        }
+    }
+    for (let book of books) {
+        if (book.genres.length === maxGenres) {
+            console.log(book);
+        }
+    }
+
+    console.log('знайти книжку/ки з найдовшою назвою');
+    // Сначала нашли максимум → потом нашли всех, кто этому максимуму соответствует.
+    let maxTitle = 0;
+    for (let book of books) {
+        if (book.title.length > maxTitle) {
+            // считает все символы строки, включая пробелы
+            maxTitle = book.title.length;
+        }
+    }
+    for (let book of books) {
+        if (book.title.length === maxTitle) {
+            console.log(book);
+        }
+    }
+
+
+    console.log('знайти книжку/ки, які писали 2 автори');
+    for (let book of books) {
+        if (book.authors.length === 2) {
+            console.log(book);
+        }
+    }
+
+    console.log('знайти книжку/ки, які писав 1 автор');
+    for (let book of books) {
+        if (book.authors.length === 1) {
+            console.log(book);
+        }
+    }
+
+
+</script>
+</body>
+</html>
+
+<!--#reLkOkTB29Q-->
+
+<!--створити масив книжок (назва, кількість сторінок, автори, жанри).-->
+
+<!--– знайти найбільшу книжку.-->
+
+<!--– знайти книжку/ки з найбільшою кількістю жанрів-->
+
+<!--– знайти книжку/ки з найдовшою назвою-->
+
+<!--– знайти книжку/ки, які писали 2 автори-->
+
+<!--– знайти книжку/ки, які писав 1 автор-->
