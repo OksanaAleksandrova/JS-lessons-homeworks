@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+
+    function userFactory(id, name, age, status) {
+        // let user =
+        //     {
+        //         id: id,
+        //         name: name,
+        //         age: age,
+        //         status: status,
+        //     }
+        // return user
+        return {
+            id: id,
+            name: name,
+            age: age,
+            status: status,
+        }
+    }
+
+    let u1 = userFactory(1, 'alex', 18, true);
+    let u2 = userFactory(2, 'vlad', 16, false);
+    let u3 = userFactory(3, 'john', 29, true);
+    let u4 = userFactory(4, 'sam', 35, true);
+
+    console.log(u1);
+    console.log(u2);
+    console.log(u3);
+    console.log(u4);
+
+
+</script>
+</body>
+</html>

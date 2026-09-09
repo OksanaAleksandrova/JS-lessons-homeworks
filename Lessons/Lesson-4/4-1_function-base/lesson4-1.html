@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+
+    function writer(productTitle, productPrice, productDescription) {
+        document.write(`
+            <div>
+                <h2>${productTitle} - ${productPrice}</h2>
+                <p>${productDescription}</p>
+            </div>
+        `);
+    }
+    writer('milk', 32, 'some milk')
+    writer('water', 12, 'some water')
+
+    function printerArray (array) {
+        for (const item of array ) {
+            console.log(item);
+        }
+    }
+
+    let users = [
+      { id: 1, name: 'Alex', age: 20, status: true },
+      { id: 2, name: 'John', age: 25, status: false },
+      { id: 3, name: 'Maria', age: 22, status: true },
+      { id: 4, name: 'Bob', age: 31, status: false },
+      { id: 5, name: 'Anna', age: 28, status: true },
+      { id: 6, name: 'Jack', age: 35, status: true },
+      { id: 7, name: 'Sally', age: 19, status: false },
+      { id: 8, name: 'David', age: 27, status: true },
+      { id: 9, name: 'Kate', age: 24, status: false },
+      { id: 10, name: 'Mike', age: 33, status: true },
+      { id: 11, name: 'Emma', age: 29, status: true },
+      { id: 12, name: 'Leo', age: 21, status: false }
+    ];
+    printerArray(users);
+
+
+    let products = [
+            {
+                title: 'milk',
+                price: 18.99,
+                image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1reNq3CgA1PiTY9CX_SMcD8tYSFGjxqWRaW-x5BlxfQ&s=10'
+            },
+            {
+                title: 'juice',
+                price: 15.99,
+                image: 'https://img.magnific.com/premium-photo/png-orange-juice-box-drink-illustration-transparent-background_53876-973475.jpg'
+            },
+            {
+                title: 'water',
+                price: 25.99,
+                image: 'https://goodmockups.com/wp-content/uploads/2020/09/Free-1.5-0.5-Liter-Drinking-Mineral-Water-Bottle-Mockup-PSD-Set-2.jpg'
+            },
+            {
+                title: 'tea',
+                price: 25.99,
+                image: 'https://images.template.net/85545/free-tea-packaging-vector-a8gel.jpg'
+            }
+        ];
+    printerArray(products);
+</script>
+</body>
+</html>
