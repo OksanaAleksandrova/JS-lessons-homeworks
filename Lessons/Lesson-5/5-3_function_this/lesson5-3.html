@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+
+    let user = {
+        name: "John",
+        age: 32,
+        greeting: function (msg) {
+            console.log(this);
+            return `${msg} my name is ${this.name}`;
+        },
+        greetingAge: (msg) => `${msg} my age is ${user.age}`
+    }
+
+    console.log(user.greeting('hi!'));
+    console.log(user.greetingAge('hi!'));
+
+
+</script>
+</body>
+</html>
