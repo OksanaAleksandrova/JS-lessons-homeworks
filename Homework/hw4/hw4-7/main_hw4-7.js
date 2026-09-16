@@ -7,7 +7,7 @@ function foobar(text, counter) {
     for (let i = 0; i < counter; i++) {
         document.write(`<li>${text}</li>`);
     }
-    document.write(`<ul></ul>`)
+    document.write(`</ul>`)
 }
 
 foobar('text', 5);
