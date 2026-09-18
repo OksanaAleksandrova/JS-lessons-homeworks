@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+
+    let users = [
+        {id: 1, name: 'Alex', age: 20, status: true},
+        {id: 2, name: 'John', age: 25, status: false},
+        {id: 3, name: 'Maria', age: 22, status: true},
+        {id: 4, name: 'Bob', age: 31, status: false},
+        {id: 5, name: 'Anna', age: 28, status: true},
+        {id: 6, name: 'Jack', age: 35, status: true},
+        {id: 7, name: 'Sally', age: 19, status: false},
+        {id: 8, name: 'David', age: 27, status: true},
+        {id: 9, name: 'Kate', age: 24, status: false},
+        {id: 10, name: 'Mike', age: 33, status: true},
+        {id: 11, name: 'Emma', age: 29, status: true},
+        {id: 12, name: 'Leo', age: 21, status: false}
+    ];
+
+    // ---------- Метод forEach
+
+    // users.forEach(function (value) {
+    //     console.log(value);
+    // });
+
+    users.forEach(value => console.log(value)); // короткая запись с помощью стрелочной функции
+
+
+    // ---------- Метод filter
+
+    // let filteredUsers = users.filter(function (value) {
+    //     return value.age > 30;
+    // });
+    let filteredUsers = users.filter(value => value.age > 30); // короткая запись с помощью стрелочной функции
+    console.log(filteredUsers);
+
+    // ---------- Метод map
+    let mapUsers = users.map(function (value, index) {
+        // return {
+        //     id: index + 1,
+        //     name: value.name,
+        //     age: value.age
+        // };
+        return {...value, id: index + 1}; // ...value — это spread-оператор, или «распаковка» объекта.
+    });
+    console.log(mapUsers);
+
+    // ---------- Метод find
+    let find = users.find(value => value.name === 'Kate');
+    console.log(find);
+
+    // ---------- Метод every & some
+    console.log(users.every(value => value.status));
+    console.log(users.some(value => value.status));
+
+    // ---------- Метод sort
+    let sort = users.sort((a, b) => {
+        // return a.age - b.age;
+        return b.age - a.age;
+    });
+    console.log(sort);
+
+    console.log(users.sort((a, b) => {
+        if (a.name > b.name) {
+            return 1;
+        } else if (a.name < b.name) {
+            return -1;
+        } else if (a.name === b.name) {
+            return 0;
+        }
+    })); // тут оно считает длину имени по ASCII кодам, а не по буквам
+
+    console.log(users.sort((a, b) => {
+        if (a.name.length > b.name.length) {
+            return 1;
+        } else if (a.name.length < b.name.length) {
+            return -1;
+        } else if (a.name.length === b.name.length) {
+            return 0;
+        }
+    }));
+
+    // ---------- Метод reduce
+    let reduce = users.reduce((accumulator, user) => {
+        if (user.status) {
+            accumulator.statT.push(user);
+        } else {
+            accumulator.statF.push(user);
+        }
+        return accumulator;
+    }, {statT: [], statF: []});
+    console.log(reduce);
+
+
+</script>
+</body>
+</html>
