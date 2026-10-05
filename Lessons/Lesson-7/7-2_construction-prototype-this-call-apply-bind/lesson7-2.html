@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    function User(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+</script>
+
+<script>
+
+    // let user = new User('alex', 31);
+    // user.greeting = function () {
+    //     console.log('hi!');
+    // };
+    // console.log(user);
+    // user.greeting();
+
+    // console.log(User);
+    //
+    // User.prototype.greeting = function () {
+    //     return `Hello! My name is ${this.name}`;
+    // };
+    //
+    // let user = new User('alex', 32);
+    // console.log(user.greeting());
+
+    // let user = new User('alex', 31);
+    // user.greeting = function (msg) {
+    //     return `${msg} My name is ${this.name}`;
+    // };
+    // console.log(user.greeting('Hello!'));
+    //
+    // let user2 = new User('sam', 35);
+    // console.log(user.greeting.apply(user2, ['Hi!']));
+    // console.log(user.greeting.call(user2, 'Hey!'));
+
+
+    let user = new User('bob', 34);
+    user.greeting = function (msg) {
+        return `${msg} My name is ${this.name}`
+    };
+
+    let user2 = new User('cole', 34);
+    let greetingCopy = user.greeting.bind(user2, 'Good day!');
+    console.log(greetingCopy());
+
+
+</script>
+</body>
+</html>

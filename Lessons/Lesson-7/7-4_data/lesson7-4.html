@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+
+    let now = new Date();
+    console.log(now);
+    console.log(now.getFullYear());
+    console.log(now.getMonth() + 1); // +1 потому что отсчёт начинается с 0, т.е. январь - 0
+    console.log(now.getDay());
+    console.log(now.getHours());
+    console.log(now.getMinutes());
+    console.log(now.getSeconds());
+    console.log(now.getMilliseconds());
+    console.log(now.getTime()); // даёт количество милисекунд, начиная от 01.01.1970 - от начала эпохи вычисления времени в системе юникс
+
+    // let date1 = new Date(1790863303590);
+    // let date1 = new Date('June 16 1989 12:00:00');
+    let date1 = new Date(1989, 5, 16, 12, 0, 0, 0);
+    console.log(date1);
+
+    date1.setDate(1);
+    console.log(date1);
+
+    let user = {
+        id: 1,
+        name: "John",
+        bday: new Date(17908633035),
+    }
+    console.log(user);
+
+</script>
+</body>
+</html>

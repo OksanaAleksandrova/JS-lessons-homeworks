@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+
+    class User {
+
+        constructor(name, age) {
+            this.name = name;
+            this.age = age;
+        }
+
+        // static greeting() {
+        //     return `Hello! My name is ${this.name}`;
+        // }
+
+        work() {
+            return `work in process`;
+        }
+    }
+
+    let user = new User('Sam', 34);
+    console.log(user);
+    // console.log(user.greeting());
+
+    class Customer extends User {
+
+        constructor(name, age, password) {
+            super(name, age);
+            this.password = password;
+        }
+    }
+
+    let customer = new Customer('Bob', 37, '1111');
+    console.log(customer);
+    console.log(customer.work());
+
+
+    // Пример как сделать такое наследование без класса
+
+    function User2(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+    function Customer2(name, age, password) {
+        User2.apply(this, arguments);
+        this.password = password;
+    }
+    let customer2= new Customer2('Tom', 90, '1111');
+    console.log(customer2);
+
+
+</script>
+</body>
+</html>
