@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+
+    let user = {
+        firstName: 'John',
+        lastName: 'Doe',
+    }
+
+    Object.defineProperty(
+        user,
+        'id',
+        {
+            value: 100,
+            writable: false,
+            enumerable: false, // возможность перечислять
+            configurable: false, // при следующем вызове Object.defineProperty не будет возможности его конфигурировать
+        })
+
+    console.log(user);
+    user.id = 200;
+    console.log(user); // id не поменялся, потому writable: false
+
+    for (const userKey in user) {
+        console.log(userKey);
+    } // не выводится характеристика id, потому что enumerable: false
+
+    Object.defineProperty(
+        user,
+        'id',
+        {
+            value: 200,
+            writable: false,
+            enumerable: false,
+            configurable: false,
+        })
+
+    console.log(user); // выдаст ошибку, потому что configurable: false
+
+</script>
+</body>
+</html>

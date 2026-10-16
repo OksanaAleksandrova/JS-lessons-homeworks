@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    // Что нового появилось в ES6 Features
+    // можно писать сокращённо параметры объекта, он будет брать значение из переменной. НО важно, чтобы названия были одинаковые. Т.е. вместо {name: name} можно писать только name
+    let name1 = 'bob';
+    let age1 = 68;
+    let user1 = {
+        name1,
+        age1,
+        foo() {
+            console.log(this);
+        }
+    };
+    console.log(user1);
+    user1.foo();
+
+    // Деструктуризация. Можно декомпонировать объект. Можно вытягивать конкретные значение таким способом. Используется на этапе реакта. Или когда есть какой-то объект с разными полями, а через функцию можно брать только одно его поле, например - function new({name}){}. Если такого поля в объекте не будет, то результат будет undefined
+    let user2 = {
+        name2: 'tom',
+        age2: 35,
+        foo2() {
+            console.log('foo2');
+        },
+        wife: 'anna'
+    }
+
+    let {age2, name2, foo2} = user2;
+    console.log(name2);
+    console.log(age2);
+    foo2();
+
+    let {name2: userName2, age2: userAge2, wife} = user2;
+    console.log(userName2, userAge2, wife);
+
+
+    // Деструктуризация массива. Подобная работа с массивами
+    let [a, b, c] = [11, 22, 33];
+    console.log(a, b, c);
+    // let [a, , c] = [11, 22, 33];
+    // console.log(a, c);
+    // чтобы проигнорировать какие-то данные, можно сделать пустой сегмент (убрали b) - let [a, , c] = [11, 22, 33]; - 22 не используется
+
+    let users = [
+        {id: 1, name: 'Alex', age: 20, status: true},
+        {id: 2, name: 'John', age: 25, status: false},
+        {id: 3, name: 'Maria', age: 22, status: true},
+        {id: 4, name: 'Bob', age: 31, status: false},
+        {id: 5, name: 'Anna', age: 28, status: true},
+        {id: 6, name: 'Jack', age: 35, status: true},
+        {id: 7, name: 'Sally', age: 19, status: false},
+        {id: 8, name: 'David', age: 27, status: true},
+        {id: 9, name: 'Kate', age: 24, status: false},
+        {id: 10, name: 'Mike', age: 33, status: true},
+        {id: 11, name: 'Emma', age: 29, status: true},
+        {id: 12, name: 'Leo', age: 21, status: false}
+    ];
+    let [{name, age, status}, user3] = users;
+    console.log(user3);
+</script>
+</body>
+</html>

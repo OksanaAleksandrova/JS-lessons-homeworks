@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+
+    let user = {
+        name: 'John',
+        age: 80,
+        skills: ['html', 'js'],
+        greeting() {
+        },
+    };
+
+    let userJsonClone = JSON.stringify(user); // Convert to JSON формат, делает из объекта стрингу, НО при этом убираются все функции, т.к. JSON передаёт информацию, а не поведение
+    console.log(userJsonClone);
+
+    let parse = JSON.parse(userJsonClone); // делает из string объект, но это уже полноценная глубокая самостоятельная копия
+    console.log(parse);
+    console.log(user);
+    console.log(user === parse);
+    console.log(user.skills === parse.skills);
+
+    // есть ещё вариант поверхностной копии
+    let assign = Object.assign({}, user);
+    console.log(assign);
+    console.log(assign === user);
+    console.log(assign.skills === user.skills);
+
+</script>
+</body>
+</html>
