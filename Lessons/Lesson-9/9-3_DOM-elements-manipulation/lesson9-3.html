@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<h1>before</h1>
+
+<div id="target" class="point">
+    <b> Lorem ipsum dolor sit amet</b>, consectetur adipisicing elit. Ab harum laboriosam nihil quo reprehenderit sequi sint ut voluptas. Beatae blanditiis doloremque
+    dolores esse id omnis temporibus totam voluptas! <span>Consectetur</span>, modi.
+</div>
+
+<h2>after</h2>
+
+<div class="point">
+    <b> Lorem ipsum dolor sit amet</b>, consectetur adipisicing elit. Ab harum laboriosam nihil quo reprehenderit sequi sint ut voluptas. Beatae blanditiis doloremque
+    dolores esse id omnis temporibus totam voluptas! <span>Consectetur</span>, modi.
+</div>
+
+<div class="point">
+    <b> Lorem ipsum dolor sit amet</b>, consectetur adipisicing elit. Ab harum laboriosam nihil quo reprehenderit sequi sint ut voluptas. Beatae blanditiis doloremque
+    dolores esse id omnis temporibus totam voluptas! <span>Consectetur</span>, modi.
+</div>
+
+<script>
+    const target = document.getElementById('target');
+    console.log(target.innerText);
+    // target.innerText = 'new text'; // воспринимается как обычный текст
+    // target.innerHTML = '<b>new text</b>'; // воспринимается как HTML, то есть выведет текст жирным
+    target.style.background = 'cyan'; // цвет запишется в inline стиль. Так делать не стоит. Лучше создать класс через classList и его описать в css
+    console.log(target.classList);
+    target.classList.add('one'); // добавить класс
+    target.classList.add('two');
+    console.log(target.classList.item(0)); // Вытянет класс под нулевым индексом, т.е. - one
+    console.log(target.classList.contains('two')); // вернёт булевое значение, существует ли такой класс
+    target.classList.toggle('three'); // Если этого класса не существовало, то он создастся. А если такой класс уже есть - то он удалится.
+
+    // достать информацию про атрибут
+    console.log(target.getAttribute('one'));
+    console.log(target.getAttribute('id'));
+    console.log(target.getAttribute('class'));
+    console.log(target.getAttribute('style'));
+    // target.setAttribute('id', 'new-id'); // заменит id
+
+    console.log(target.previousElementSibling); // выведет элемент предыдущий тому, с которым работаешь
+    console.log(target.nextElementSibling);
+    console.log(target.children); // возвращает HTML
+    console.log(target.childNodes); // возвращает Nods (узлы)
+
+    console.log(target.outerHTML); // показывает родительский элемент, его структуру, содержание
+
+    // можно сделать коллекцию div и при помощи итерации делать с ними необходимые операции
+    let collectionOfDiv = document.getElementsByClassName('point');
+    for (const divElement of collectionOfDiv) {
+        divElement.innerText = 'new text';
+        divElement.classList.add('new');
+    }
+</script>
+</body>
+</html>
