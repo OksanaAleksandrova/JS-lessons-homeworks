@@ -1,0 +1,21 @@
+/*– додати стилі (довільні значення) : колір фону, колір тексту, розмір тексту*/
+.wrap {
+    width: 300px;
+    height: 80px;
+    padding: 20px;
+    margin: 20px auto;
+}
+
+.collapse {
+    background: lightblue;
+}
+
+.alpha {
+    color: #063e50;
+    font-size: 34px;
+}
+
+.beta {
+    font-weight: bold;
+    text-align: center;
+}
