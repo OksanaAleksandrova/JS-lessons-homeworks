@@ -1,0 +1,29 @@
+.course-block {
+    border: 2px solid #d81313;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 20px;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.title-block, .modules-block {
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.duration-block {
+    display: flex;
+    gap: 10px;
+}
+
+.month-block,
+.hour-block {
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 10px;
+    flex: 1;
+}
