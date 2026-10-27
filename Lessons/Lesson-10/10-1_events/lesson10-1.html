@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+
+        #target {
+            width: 200px;
+            height: 200px;
+            background: silver;
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="target"></div>
+
+<!--<form id="f1">-->
+<!--    <input id="i1" name="username">-->
+<!--    <button>send</button>-->
+<!--</form>-->
+
+
+<script>
+
+    let target = document.getElementById('target');
+    target.onclick = function (event) {
+        console.log('click');
+        console.log(event);
+    }
+    // target.onmousemove= function (event) {
+    //     console.log('mousemove');
+    //     console.log(event.clientX, event.clientY);
+    //     let r = event.clientX;
+    //     let g = event.clientX;
+    //     let b = event.clientY;
+    //     this.style.background = `rgb(${r}, ${g}, ${b})`; // цвет элемента будет меняться при движении мыши по нему
+    // }
+
+    // Если повторить такой же вызов onclick, то запишется только последнее значение. Если нужны и другие значения при клике мышкой, то это надо делать через addEventListener - таких вызовов может быть сколько необходимо. Но тут нельзя использовать стрелочные функции, т.к. теряется контекст this
+    // target.onclick = function () {
+    //     console.log('click 2');
+    // }
+    target.addEventListener('click', function () {
+        console.log('click 3');
+    })
+
+    target.onmouseover = function () {
+        console.log('over');
+    }
+
+    target.onmouseleave = function () {
+        console.log('leave');
+    } // на базе таких event создается heatmap site - карта поведения пользователей на сайте
+
+    // С помощью event в джава скрипт можно влиять на другие элементы. Тут информация, которая будет записывать в инпут, также запишется и в target
+
+    let i1 = document.getElementById('i1');
+    i1.oninput = function () {
+        target.innerText = this.value;
+    }
+
+    let f1 = document.forms.f1;
+    f1.onsubmit = function (event) {
+        event.preventDefault(); // Отменяет действия по умолчанию. Тут это перезагрузка страницы. Выведется только console.log
+        console.log('hello');
+        let user = {name: this.username.value};
+        console.log(user); // выведется новый объект с тем именем, которое напишется в инпут
+    }
+
+    // можно трекать состояние документа, например, загрузился ли он, какое-то окно и т.д.
+    window.onload = function () {
+        console.log('loaded');
+    }
+    // Но окно и страница - это разные вещи. В окне рендерится документ (страница). Документ имеет специальный ивент .onreadystatechange. Он меняет в документе параметр .readyState - interactive (коммуникация между браузером и документом), complete (когда страница полностью загрузилась), loaded (отрабатывается действие window.onload). Т.е. сначала загружается документ, а потом окно, в котором он находится.
+    // document.onreadystatechange = function () {
+    //     console.log(document.readyState);
+    // }
+    document.onreadystatechange = function () {
+       if (document.readyState === 'interactive') {
+           document.body.innerText = 'loading start...';
+       }
+        if (document.readyState === 'complete') {
+            document.body.innerText = 'loading complete';
+        }
+    }
+
+
+</script>
+</body>
+</html>
