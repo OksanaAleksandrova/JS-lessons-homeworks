@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .products img {
+            width: 200px;
+        }
+
+        .products button {
+            display: block;
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="products"></div>
+
+<script>
+
+    let productsDiv = document.getElementsByClassName('products')[0];
+
+    let products = [
+        {
+            title: 'milk',
+            price: 18.99,
+            image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1reNq3CgA1PiTY9CX_SMcD8tYSFGjxqWRaW-x5BlxfQ&s=10'
+        },
+        {
+            title: 'juice',
+            price: 15.99,
+            image: 'https://img.magnific.com/premium-photo/png-orange-juice-box-drink-illustration-transparent-background_53876-973475.jpg'
+        },
+        {
+            title: 'water',
+            price: 25.99,
+            image: 'https://goodmockups.com/wp-content/uploads/2020/09/Free-1.5-0.5-Liter-Drinking-Mineral-Water-Bottle-Mockup-PSD-Set-2.jpg'
+        },
+        {
+            title: 'tea',
+            price: 25.99,
+            image: 'https://images.template.net/85545/free-tea-packaging-vector-a8gel.jpg'
+        }
+    ];
+
+    for (const product of products) {
+        let productBlock = document.createElement('div');
+
+        let h2 = document.createElement('h2');
+        h2.innerText = `${product.title} ${product.price} UAH`;
+
+        let img = document.createElement('img');
+        img.src = product.image;
+
+        let button = document.createElement('button');
+        button.innerText = 'add to cart';
+
+        button.onclick = function () {
+            let cart = JSON.parse(localStorage.getItem('cart')) || []; // Хотим посмотреть, есть ли в localStorage Item с названием 'cart'. Если нет, то запишется пустой массив - null. А если что-то добавлялось когда-ир в корзину, то там будет корзина с товарами
+            cart.push(product);
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+
+
+        productBlock.append(h2, img, button);
+
+        productsDiv.appendChild(productBlock);
+    }
+
+</script>
+</body>
+</html>
