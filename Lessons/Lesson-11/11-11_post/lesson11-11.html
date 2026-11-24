@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<form>
+    <label>
+        UserId
+        <input type="number" name="userId">
+    </label>
+    <label>
+        Title
+        <input type="text" name="title">
+    </label>
+    <label>
+        Body
+        <input type="text" name="body">
+    </label>
+    <button>save</button>
+</form>
+
+
+<script>
+    let form = document.forms[0];
+    form.onsubmit = function (ev) {
+        ev.preventDefault();
+        let userId = this.userId.value;
+
+        // console.log(userId.match(/\d/g)); // g - global, значит что информация будет искаться глобально по этой стринге. /\d/ - разрешено иметь только диджит (цифра)
+        // console.log(userId.match(/[0-4]/g)); // конкретные числа, диапазон 0-4
+
+        let title = this.title.value;
+        let body = this.body.value;
+        if (!!userId.match(/[0-9]/g) && !!body.match(/(\w+\s){3,}/g)) {
+            fetch('https://jsonplaceholder.typicode.com/posts', {
+                method: 'POST',
+                body: JSON.stringify({
+                    title: title,
+                    body: body,
+                    userId: +userId,
+                }),
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                },
+            })
+                .then(response => response.json())
+                .then(json => console.log(json))
+        }
+        // \w+ проверяет, что слов больше, чем 1. \s - проверяет наличие пробела между словами. (\w+\s) - этой группой описали слово, {3,} - это количество таких слов. !!body.match(/(\w+\s){3,}/g) - вернёт true или false
+
+
+
+        // console.log(userId, title, body);
+    }
+</script>
+</body>
+</html>

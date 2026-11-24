@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    // fetch('https://jsonplaceholder.typicode.com/users')
+    //     .then(response => response.json())
+    //     .then(users => {
+    //         for (const {name, email} of users) {
+    //             document.write(`<div>${name} ${email}</div>`)
+    //         }
+    //     });
+
+    fetch('https://dummyjson.com/products?limit=3&skip=10') // ?limit=3 - выведет три продукта, &skip=10 - пропустятся первые 10 продуктов
+        .then(value => value.json())
+        // .then(products => console.log(products))
+        .then(result => {
+            console.log(result);
+            let {products} = result;
+
+            document.write(`<div>`);
+            for (const product of products) {
+                document.write(`<div>`);
+                document.write(`<p>${product.id} ___ ${product.title} - ${product.price}</p>`);
+                document.write(`<img src="${product.thumbnail}" alt="">`);
+                document.write(`</div>`);
+            }
+            document.write(`</div>`);
+        });
+
+
+    fetch('https://dummyjson.com/products/add', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+            title: 'BMW Pencil',
+        })
+    })
+        .then(res => res.json())
+        .then(console.log);
+
+    // fetch('https://jsonplaceholder.typicode.com/posts/1')
+    //     .then(value => value.json())
+    //     .then(value => {
+    //         let btn=document.createElement('button');
+    //         btn.setAttribute('class', 'btn btn-success');
+    //         btn.innerText = 'Submit';
+    //         document.body.appendChild(btn);
+    //     })
+
+</script>
+</body>
+</html>
